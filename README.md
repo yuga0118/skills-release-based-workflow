@@ -16,45 +16,59 @@ _Create a release based workflow that is built on the foundations of the GitHub 
 </header>
 
 <!--
-  <<< Author notes: Step 5 >>>
+  <<< Author notes: Step 2 >>>
   Start this step by acknowledging the previous step.
   Define terms and link to docs.github.com.
 -->
 
-## Step 5: Finalize the release
+## Step 2: Add a new feature to the release branch
 
-_Awesome work on the release notes :+1:_
+_Great job creating a beta release :heart:_
 
-### Finalizing releases
+### Release management
 
-It's important to be aware of the information what will be visible in that release. In the pre-release, the version and commit messages are visible.
+As you prepare for a future release, you'll need to organize more than the tasks and features. It's important to create a clear workflow for your team, and to make sure that the work remains organized.
 
-![image](https://user-images.githubusercontent.com/13326548/47883578-bdba7780-ddea-11e8-84b8-563e12f02ca6.png)
+There are several strategies for managing releases. Some teams might use long-lived branches, like `production`, `dev`, and `main`. Some teams use simple feature branches, releasing from the main branch.
 
-### Semantic versioning
+No one strategy is better than another. We always recommend being intentional about branches and reducing long-lived branches whenever possible.
 
-Semantic versioning is a formal convention for specifying compatibility. It uses a three-part version number: **major version**; **minor version**; and **patch**. Version numbers convey meaning about the underlying code and what has been modified. For example, versioning could be handled as follows:
+In this exercise, you'll use the `release-v1.0` branch to be your one long-lived branch per release version.
 
-| Code status                     | Stage         | Rule                                                                   | Example version |
-| ------------------------------- | ------------- | ---------------------------------------------------------------------- | --------------- |
-| First release                   | New product   | Start with 1.0.0                                                       | 1.0.0           |
-| Backward compatible fix         | Patch release | Increment the third digit                                              | 1.0.1           |
-| Backward compatible new feature | Minor release | Increment the middle digit and reset the last digit to zero            | 1.1.0           |
-| Breaking updates                | Major release | Increment the first digit and reset the middle and last digits to zero | 2.0.0           |
+### Protected branches
 
-Check out this article on [Semantic versioning](https://semver.org/) to learn more.
+Like the `main` branch, you can protect release branches. This means you can protect branches from force pushes or accidental deletion. This is already configured in this repository.
 
-### Finalize the release
+### Add a feature
 
-Now let's change our recently automated release from _draft_ to _latest release_.
+Releases are usually made of many smaller changes. Let's pretend we don't know about the bug we added earlier and we'll focus on a few features to update our game before the version update.
 
-### :keyboard: Activity: Finalize release
+- You should update the page background color to black.
+- I'll help you change the text colors to green.
 
-1. In a separate tab, go to the **Releases** page for this repository.
-   - _Tip: To reach this page, click the **Code** tab at the top of your repository. Then, find the navigation bar below the repository description, and click the **Releases** heading link._
-1. Click the **Edit** button next to your draft release.
-1. Ensure the _Target_ branch is set to `main`.
-1. Click **Publish release**.
+### :keyboard: Activity: Update `base.css`
+
+1. Create a new branch off of the `main` branch and change the `body` CSS declaration in `base.css` to match what is below. This will set the page background to black.
+
+```
+body {
+    background-color: black;
+}
+```
+
+1. Open a pull request with `release-v1.0` as the `base` branch, and your new branch as the `compare` branch.
+1. Fill in the pull request template to describe your changes.
+1. Click **Create pull request**.
+
+### Merge the new feature to the release branch
+
+Even with releases, the GitHub flow is still an important strategy for working with your team. It's a good idea to use short-lived branches for quick feature additions and bug fixes.
+
+Merge this feature pull request so that you can open the release pull request as early as possible.
+
+### :keyboard: Activity: Merge the pull request
+
+1. Click **Merge pull request**, and delete your branch.
 1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
 
 <footer>
